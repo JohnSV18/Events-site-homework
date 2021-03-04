@@ -10,25 +10,16 @@
     TODO: Use the event objects to display the correct information (and take 
     out the hardcoded values)
 -->
-
-<div class="event-container"></div>
-    <h3><a href="/event/1">{{ events[0].title }}</a></h3>
-    <p><strong>Date and Time:</strong> {{events[0].date_and_time}} </p>
-    <p><strong>Description:</strong> {{events[0].description}}</p>
-    <p class="small-text">
-        {{events[0].guests}}
-    </p>
-</div>
-
-<div class="event-container">
-    <h3><a href="/event/2">{{ events[1].title }}</a></h3>
-    <p><strong>Date:</strong> {{ events[1].date_and_time }}</p>
-    <p><strong>Description:</strong> {{ events[1].description }}</p>
-    <p class="small-text">
-        {{ events[1].guests }}
-    </p>
-</div>
-
+{% for event in events %}
+    <div class="event-container">
+        <h3><a href="/event/{{ event.id }}">{{ event.title }}</a></h3>
+        <p><strong>Date and Time:</strong> {{event.date_and_time}} </p>
+        <p><strong>Description:</strong> {{event.description}}</p>
+        <p class="small-text">
+            {{event.guests|length}} attending
+        </p>
+    </div>
+{% endfor %}
 
 
 {% endblock %}

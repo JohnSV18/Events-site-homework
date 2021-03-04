@@ -15,10 +15,11 @@
 <p><strong>Phone:</strong> {{ guest.phone }}</p>
 
 <h2>Events Attending:</h2>
-{% for event in events_attending%}
+{% for event in guest.events_attending%}
 <ul>
-    <li><a href="/event/{{ event.id }}">{{ event }}</a></li>
-</ul>
+    <li><a href="/event/{{ event.id }}">{{ event.title }}</a></li>
 {% endfor %}
+</ul>
+
 
 {% endblock %}
